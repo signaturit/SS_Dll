@@ -37,9 +37,6 @@
     <Reference Include="DistributedSignature, Version=4.0.7776.15074, Culture=neutral, PublicKeyToken=24d48a16f9f2a540, processorArchitecture=MSIL">
       <HintPath>..\packages\DistributedSignature.4.0.7776.15074\lib\net46\DistributedSignature.dll</HintPath>
     </Reference>
-    <Reference Include="IvWebRequest, Version=1.1.0.1, Culture=neutral, PublicKeyToken=49ba2130d9bc9e09, processorArchitecture=MSIL">
-      <HintPath>..\packages\IvWebRequest.1.1.0.1\lib\net452\IvWebRequest.dll</HintPath>
-    </Reference>
     <Reference Include="Logger, Version=2.4.7803.24239, Culture=neutral, PublicKeyToken=b8d0c7ec90c2f4c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Logger.2.4.7803.24239\lib\net40\Logger.dll</HintPath>
     </Reference>

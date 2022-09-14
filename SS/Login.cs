@@ -2,9 +2,14 @@
 using ProcessorsUtilities;
 using ProcessorsUtilities.Model;
 using ProcessorsUtilities.Utils;
+using SBHTTPSClient;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
+//using Ivnosys.Utils;
 
 namespace SS
 {
@@ -44,13 +49,14 @@ namespace SS
         {
             baseURL = urlBase;
             loginURL = connectorURL;
+            type = certType;
             utilsRq.SetParams(certType, ktoken, certid, pin, entorno);
             utilsRq.StartTracer(sessionId, brokerUrl, new Uri(baseURL).Host, dllVersion);
             utilsRq.SetService(idService);
             if (certType == CertType.IVSIGN)
                 Common.IvSignOK(entorno, ktoken, certid, pin);
         }
-
+      
         /// <summary>
         /// Set the basic connection parameters to be able to start the login process
         /// </summary>
@@ -77,10 +83,11 @@ namespace SS
         public string Process(X509Certificate2 clientCertificate, ref CookieContainer cookies, string referURL = "")
         {
             AIRequests aIRequests = utilsRq.GetAiRequest(clientCertificate, 5000000, baseURL, type);
+            if (type == CertType.IVSIGN)
+                utilsRq.SetCertType(CertType.IVSIGN);
             aIRequests = Process(aIRequests, referURL);
             cookies = aIRequests.CookieContainer;
-            return aIRequests.HtmlContent;
-
+           return aIRequests.HtmlContent;
         }
 
         /// <summary>
@@ -92,7 +99,6 @@ namespace SS
         public AIRequests Process(AIRequests aIRequests, string referURL = "")
         {
             string requestURL = loginURL;
-
             aIRequests.HttpRequest(ref requestURL, ref referURL, AccessType.GET);
             string content = aIRequests.HtmlContent.ToLower();
 
