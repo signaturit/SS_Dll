@@ -40,8 +40,8 @@
     <Reference Include="Logger, Version=2.4.7803.24239, Culture=neutral, PublicKeyToken=b8d0c7ec90c2f4c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Logger.2.4.7803.24239\lib\net40\Logger.dll</HintPath>
     </Reference>
-    <Reference Include="ProcessorsUtilities, Version=2.7.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ProcessorsUtilities.2.7.0.5\lib\net46\ProcessorsUtilities.dll</HintPath>
+    <Reference Include="ProcessorsUtilities, Version=2.8.2.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ProcessorsUtilities.2.8.2.3\lib\net46\ProcessorsUtilities.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
